@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlainClause — Understand before you agree</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="eyebrow">PromptWars · AI for Legal Assistance &amp; Access</div>
+      <h1>PlainClause</h1>
+      <p class="tagline">Understand the document before you agree to it.</p>
+      <p class="intro">Turn dense agreements into a plain-language brief with obligations, deadlines, warning signals, and questions to take to a qualified professional.</p>
+    </header>
+
+    <section class="panel input-panel" aria-labelledby="input-title">
+      <div class="panel-heading"><div><span class="step">01</span><h2 id="input-title">Add a document</h2></div><span class="privacy-chip">Private by default</span></div>
+      <label for="documentText">Paste an agreement, policy, offer letter, rental clause, or notice</label>
+      <textarea id="documentText" rows="10" placeholder="Paste the text you want to understand…"></textarea>
+      <div class="controls">
+        <label class="select-wrap" for="goal"><span>Review goal</span><select id="goal"><option value="plain-language brief">Plain-language brief</option><option value="obligations and deadlines">Obligations &amp; deadlines</option><option value="risks and negotiation questions">Risks &amp; negotiation questions</option></select></label>
+        <button id="analyzeBtn" class="primary">Analyze document <span>→</span></button>
+      </div>
+      <details class="api-details"><summary>Use live Gemini analysis (optional)</summary><div class="api-box"><label for="apiKey">Gemini API key</label><input id="apiKey" type="password" autocomplete="off" placeholder="Paste your key for this session only" /><p>Your key is kept in this browser tab and sent directly to Google Gemini. It is never stored in the repository or sent to PlainClause servers. If left blank, the app runs its transparent offline demo analysis.</p></div></details>
+    </section>
+
+    <section class="samples" aria-label="Examples"><span>Try an example:</span><button data-sample="rent">Rental clause</button><button data-sample="internship">Internship offer</button><button data-sample="privacy">Privacy policy</button></section>
+
+    <section id="emptyState" class="panel empty-state"><div class="empty-icon">✦</div><h2>Your brief will appear here</h2><p>PlainClause highlights what the document says, what it asks you to do, and what deserves a closer look.</p></section>
+    <section id="result" class="panel result-panel hidden" aria-live="polite"></section>
+
+    <footer><strong>PlainClause</strong><span>Information, not legal advice. Do not paste passwords, identity numbers, or confidential client data.</span><span id="modeBadge">Offline demo ready</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
